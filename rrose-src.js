@@ -31,23 +31,28 @@ L.Rrose = L.Popup.extend({
     }
 
     // Set the pixel distances from the map edges at which popups are too close and need to be re-oriented.
-    var x_bound = 80, y_bound = 80;
+    var x_min = 80, x_max = 80, y_min = 80;
+    if (this.options.bounds) {
+        x_min = this.options.bounds.min.x;
+        y_min = this.options.bounds.min.y;
+        x_max = this.options.bounds.max.x;
+    }
     // Determine the alternate direction to pop up; north mimics Leaflet's default behavior, so we initialize to that.
     this.options.position = 'n';
     // Then see if the point is too far north...
-    var y_diff = y_bound - this._map.latLngToContainerPoint(this._latlng).y;
+    var y_diff = y_min - this._map.latLngToContainerPoint(this._latlng).y;
     if (y_diff > 0) {
-      this.options.position = 's'
+      this.options.position = 's';
     }
     // or too far east...
-    var x_diff = this._map.latLngToContainerPoint(this._latlng).x - (this._map.getSize().x - x_bound);
+    var x_diff = this._map.latLngToContainerPoint(this._latlng).x - x_max;
     if (x_diff > 0) {
-      this.options.position += 'w'
+      this.options.position += 'w';
     } else {
     // or too far west.
-      x_diff = x_bound - this._map.latLngToContainerPoint(this._latlng).x;
+      x_diff = x_min - this._map.latLngToContainerPoint(this._latlng).x;
       if (x_diff > 0) {
-        this.options.position += 'e'
+        this.options.position += 'e';
       }
     }
 
