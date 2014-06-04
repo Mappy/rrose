@@ -98,7 +98,7 @@ L.Rrose = L.Popup.extend({
     }
 
     if (/s/.test(this.options.position)) {
-      this._containerBottom = -this._container.offsetHeight + offset.y - (is3d ? 0 : pos.y);
+      this._containerBottom = -this._container.offsetHeight - (is3d ? 0 : pos.y);
     } else {
       this._containerBottom = -offset.y - (is3d ? 0 : pos.y);
     }
