@@ -116,3 +116,8 @@ L.Rrose = L.Popup.extend({
   }
 
 });
+
+if (typeof module === 'object' && typeof module.exports === 'object'){
+    module.exports = L.Rrose;
+}
+

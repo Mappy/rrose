@@ -1,0 +1,19 @@
+{
+  "name": "leaflet-rrose",
+  "version": "1.0.0",
+  "description": "Rrose: A Leaflet Plugin for Edge Cases",
+  "main": "rrose-src.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mappy/rrose.git"
+  },
+  "author": "Eric S. Theise <erictheise@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mappy/rrose/issues"
+  },
+  "homepage": "https://github.com/Mappy/rrose#readme"
+}
